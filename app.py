@@ -12,11 +12,12 @@ import rembg
 import gradio as gr
 
 # download checkpoints
-from huggingface_hub import hf_hub_download
-ckpt_path = hf_hub_download(repo_id="ashawkey/LGM", filename="model_fp16.safetensors")
+# from huggingface_hub import hf_hub_download
+# ckpt_path = hf_hub_download(repo_id="ashawkey/LGM", filename="model_fp16.safetensors")
+ckpt_path = "/content/LGM-hf/model/model.safetensors"
 
 # NOTE: no -e... else it's not working!
-os.system("pip install ./diff-gaussian-rasterization")
+# os.system("pip install ./diff-gaussian-rasterization")
 
 import kiui
 from kiui.op import recenter
