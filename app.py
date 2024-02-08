@@ -268,4 +268,4 @@ with block:
         label='Text-to-3D Examples'
     )
     
-block.launch()
+block.launch(share=True)
