@@ -2,6 +2,7 @@
 torch
 --extra-index-url https://download.pytorch.org/whl/cu118
 xformers
+git+https://github.com/ashawkey/diff-gaussian-rasterization
 numpy
 tyro
 diffusers
