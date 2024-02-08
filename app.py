@@ -11,11 +11,8 @@ from safetensors.torch import load_file
 import rembg
 import gradio as gr
 
-try:
-    from diff_gaussian_rasterization import GaussianRasterizer
-except ImportError:
-    os.system("pip install -e ./diff-gaussian-rasterization")
-    from diff_gaussian_rasterization import GaussianRasterizer
+os.system("pip install ./diff-gaussian-rasterization")
+from diff_gaussian_rasterization import GaussianRasterizer
 
 import kiui
 from kiui.op import recenter
