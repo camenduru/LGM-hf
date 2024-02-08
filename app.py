@@ -11,11 +11,15 @@ from safetensors.torch import load_file
 import rembg
 import gradio as gr
 
+try:
+    from diff_gaussian_rasterization import GaussianRasterizer
+except ImportError:
+    os.system("pip install -e ./diff-gaussian-rasterization")
+    from diff_gaussian_rasterization import GaussianRasterizer
+
 import kiui
 from kiui.op import recenter
 from kiui.cam import orbit_camera
-
-os.system('pip install -e ./diff-gaussian-rasterization')
 
 from core.options import AllConfigs, Options
 from core.models import LGM
