@@ -11,8 +11,12 @@ from safetensors.torch import load_file
 import rembg
 import gradio as gr
 
+# download checkpoints
+from huggingface_hub import hf_hub_download
+ckpt_path = hf_hub_download(repo_id="ashawkey/LGM", filename="model_fp16.safetensors")
+
+# NOTE: no -e... else it's not working!
 os.system("pip install ./diff-gaussian-rasterization")
-from diff_gaussian_rasterization import GaussianRasterizer
 
 import kiui
 from kiui.op import recenter
@@ -29,7 +33,19 @@ IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
 GRADIO_VIDEO_PATH = 'gradio_output.mp4'
 GRADIO_PLY_PATH = 'gradio_output.ply'
 
-opt = tyro.cli(AllConfigs)
+# opt = tyro.cli(AllConfigs)
+opt = Options(
+    input_size=256,
+    up_channels=(1024, 1024, 512, 256, 128), # one more decoder
+    up_attention=(True, True, True, False, False),
+    splat_size=128,
+    output_size=512, # render & supervise Gaussians at a higher resolution.
+    batch_size=8,
+    num_views=8,
+    gradient_accumulation_steps=1,
+    mixed_precision='bf16',
+    resume=ckpt_path,
+)
 
 # model
 model = LGM(opt)
