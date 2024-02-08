@@ -26,8 +26,6 @@ from core.options import AllConfigs, Options
 from core.models import LGM
 from mvdream.pipeline_mvdream import MVDreamPipeline
 
-import spaces
-
 IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
 GRADIO_VIDEO_PATH = 'gradio_output.mp4'
@@ -94,7 +92,6 @@ pipe_image = pipe_image.to(device)
 bg_remover = rembg.new_session()
 
 # process function
-@spaces.GPU
 def process(input_image, prompt, prompt_neg='', input_elevation=0, input_num_steps=30, input_seed=42):
 
     # seed
