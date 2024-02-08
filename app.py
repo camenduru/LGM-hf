@@ -15,6 +15,8 @@ import kiui
 from kiui.op import recenter
 from kiui.cam import orbit_camera
 
+os.system('pip install -e ./diff-gaussian-rasterization')
+
 from core.options import AllConfigs, Options
 from core.models import LGM
 from mvdream.pipeline_mvdream import MVDreamPipeline
