@@ -27,3 +27,5 @@ trimesh
 kiui >= 0.2.3
 xatlas
 roma
+
+-e ./diff-gaussian-rasterization

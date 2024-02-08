@@ -21,9 +21,6 @@ from mvdream.pipeline_mvdream import MVDreamPipeline
 
 import spaces
 
-# install here
-os.system('pip install -e ./diff-gaussian-rasterization')
-
 IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
 GRADIO_VIDEO_PATH = 'gradio_output.mp4'
